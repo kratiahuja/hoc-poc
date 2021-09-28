@@ -1,23 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
+import TestComponent from './TestComponent';
+import HocComponent from './HocComponent';
 
 function App() {
+  const WrappedComponent = HocComponent(TestComponent, {class_name: 'otherClass'});
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TestComponent foo="bar" className="someClass">Insert Text</TestComponent>
+      <br />
+      <WrappedComponent foo="newBar" className="testClass">Insert HOC wrapped text</WrappedComponent>
     </div>
   );
 }
