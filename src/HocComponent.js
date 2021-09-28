@@ -6,9 +6,14 @@ function HocComponent(Component, data) {
   const hue_class_name = data.class_name;
   return function WrappedComponent(props) {
     const mergedNames = classnames(hue_class_name, props.className);
-    return (
-      <Component {...props} className={mergedNames}>{props.children}</Component>
-    )
+    if (props.render) {
+      return (
+        <Component {...props}>{props.render(mergedNames)}</Component>
+      )
+    } else {
+      return (<Component {...props}>{props.children}</Component>);
+    }
+
   }
 }
 

@@ -1,10 +1,6 @@
 function TestComponent(props) {
   console.log(props);
-  return (
-    <p {...props}>
-      Hello World! {props.children}
-    </p>
-  );
+  return (props.children);
 }
 
 export default TestComponent;

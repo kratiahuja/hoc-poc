@@ -10,6 +10,10 @@ function App() {
       <TestComponent foo="bar" className="someClass">Insert Text</TestComponent>
       <br />
       <WrappedComponent foo="newBar" className="testClass">Insert HOC wrapped text</WrappedComponent>
+      <br />
+      <WrappedComponent className="testClass" render={mergedNames => (
+        <p className={mergedNames}>Render prop example</p>
+      )}/>
     </div>
   );
 }
